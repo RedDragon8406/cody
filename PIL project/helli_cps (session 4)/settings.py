@@ -89,3 +89,48 @@ This error says that you didn’t write a valid edit type, maybe it has a typing
 + Your input has a mistake, did you mean:
 This error happens when you didn’t write “edit” correctly or your editting type has a mistake.
 """ #by AmirParsa
+
+
+side_parts = """In which part of the program do you need help? 
+1.main part (how to edit)
+2.error part
+""" #by sepehr
+
+
+help_error = """Errors menu:
++ Error found | No image found with address:
+This error says that your input image has a problem, maybe your address is not true, or the location is not.
+
++ Error found | Can't export the file, try again:
+This error says that the app can’t export the file, usually this error happens when the type of the exported image is not True!
+
++ Error found | your input is not true, try again:
+This error says that you made a mistake in the code, maybe you didn’t write “edit” or you didn’t write your editting type to edit the image.
+
++ Your edit choice not found | Try again by choosing one of following options:
+"address" edit [your edit choice] "exporting address"
+1. grayscale
+2. black and white
+3. negative
+4. cmyk
+5. brown_style
+6. resize
+7. rotate
+8. blur
+This error says that you didn’t write a valid edit type, maybe it has a typing mistake""" #by sepehr
+
+help_main = """Main Menu:
+To use our app, you should write this command:
+“example.type” edit editType “outExample.type”
++Example.type is your new file name & type
++edit should be in code, if its not, it means that you don’t want to edit your image and you’ll get an error
++editType is your edit type to edit the image, it should be in the code, else you’ll get an error
+Valid edit types:
+1. grayscale
+2. black and white
+3. negative
+4. cmyk
+5. brown_style
+6. resize
+7. rotate
+8. blur""" #by sepehr

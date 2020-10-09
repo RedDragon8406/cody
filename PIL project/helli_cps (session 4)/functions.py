@@ -6,11 +6,22 @@ def help_menu(): #This function by AmirParsa
     help_input = input()
     if help_input == "1":
         full_help()
-    elif help_input == "2":
-        pass
+    elif help_input == "2": # by sepehr
+        help_input_part = input(settings.side_parts)
+
     else:
         print(settings.help_ERROR)
     return
+
+def partial_help(n): #by sepehr
+    if "main" in n:
+        return settings.help_main
+    elif "error" in n:
+        return settings.help_error
+    return "we probebly haven't added that ability yet..."
+
+
+
 
 def full_help(): #This function by AmirParsa
     print(settings.full_help_menu)
