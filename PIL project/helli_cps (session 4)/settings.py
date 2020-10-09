@@ -38,7 +38,7 @@ USER_MADE_MISTAKE = """Your input has a mistake, did you mean:""" #by AmirParsa 
 HELP_MENU = """Help menu:
 Please choose one of the following options:
 1. Full help
-2. seprated help"""
+2. separated help"""
 
 help_ERROR = "Error found | Sorry, but your help choice is false, try again:" #AmirParsa
 

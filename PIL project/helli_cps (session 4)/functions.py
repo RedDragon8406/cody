@@ -8,17 +8,18 @@ def help_menu(): #This function by AmirParsa
         full_help()
     elif help_input == "2": # by sepehr
         help_input_part = input(settings.side_parts)
-
+        partial_help(help_input_part)
     else:
         print(settings.help_ERROR)
     return
 
 def partial_help(n): #by sepehr
-    if "main" in n:
-        return settings.help_main
-    elif "error" in n:
-        return settings.help_error
-    return "we probebly haven't added that ability yet..."
+    if "1" in n:
+        print(settings.help_main)
+    elif "2" in n:
+        print(settings.help_error)
+    else:
+        print("we probebly haven't added that ability yet...")
 
 
 
