@@ -4,9 +4,15 @@ from PIL import Image, ImageOps
 
 done = False
 print(settings.MAIN_MENU)
-code = input()
-if code != "help": #by AmirParsa
-    better_code = functions.code_reader(code)
+import easygui
+
+
+def input_first_part ():
+    a=easygui.enterbox("please enter ur image's address","input location")
+    return a
+
+better_code_a=input_first_part() #by kardel
+better_code = functions.code_reader(better_code_a)
 while not done:
     if code != "help": #by AmirParsa
         finish = functions.insert_checker(better_code)

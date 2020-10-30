@@ -22,24 +22,27 @@ def partial_help(n): #by sepehr
         print("we probebly haven't added that ability yet...")
 
 
+def export_checking():
+    a=easygui.enterbox("please enter ur future image's address","export location")
+    return a
 
 
 def full_help(): #This function by AmirParsa
     print(settings.full_help_menu)
     return
-def code_reader(code): # from before
-    splitted_code = code.split()
-    jam = ""
-    jam2 = ""
+def code_reader(a_part): # from before
+    # splitted_code = code.split()
+    # jam = ""
+    # jam2 = ""
     try:
-        for i in range(len(splitted_code[0])):
-            if splitted_code[0][i] != '"':
-                jam += splitted_code[0][i]
-        splitted_code[0] = jam
-        for i in range(len(splitted_code[3])):
-            if splitted_code[3][i] != '"':
-                jam2 += splitted_code[3][i]
-        splitted_code[3] = jam2
+        # for i in range(len(splitted_code[0])):
+        #     if splitted_code[0][i] != '"':
+        #         jam += splitted_code[0][i]
+        splitted_code = [a_part,'=','=','=']
+        # for i in range(len(splitted_code[3])):
+        #     if splitted_code[3][i] != '"':
+        #         jam2 += splitted_code[3][i]
+        # splitted_code[3] = jam2
         return splitted_code
     except:
         print("error found | your input is not true, try again:")
@@ -136,8 +139,13 @@ def edit_choose(address, img):
             address = mistake[i - 1]
             return edit_choose(address, img)
 
-def export_menu(address, img): # AmirParsa
-    img.save(address)
+def export_menu(address, img,which): # AmirParsa
+    if which == 'again':
+        '''
+        noob al dolleh azamian shomare 2 in tike esm tabe ro bezar
+        '''
+    else:
+        img.save(address)
     return
 
 def insert_checker(address):
@@ -157,10 +165,12 @@ def insert_checker(address):
                 address[1] = "edit"
                 img = edit_choose(address[2], img)
         try:
-            export_menu(address[3],img)
+            location = export_checking()
+            address[3] = location
+            export_menu(address[3],img,answer_of_which)
             return True
         except:
-            print("Error found | Can't export the file, try again: " + address[3]) 
+            print("Error found | Can't export the file, try again: " + address[3])
     except:
         print("Error found | No image found with address: " + address[0])
 
