@@ -7,27 +7,26 @@ print(settings.MAIN_MENU)
 import easygui
 
 
-def input_first_part ():
-    a=easygui.enterbox("please enter ur image's address","input location")
+def input_first_part (): #by Arad Nejati
+    a=easygui.enterbox("please enter your image's address","input location")
     return a
 
-better_code_a=input_first_part() #by kardel
-better_code = functions.code_reader(better_code_a)
-while not done:
-    if code != "help": #by AmirParsa
-        finish = functions.insert_checker(better_code)
-        if finish == True:
-            done = True
-        else:
-            print(settings.MAIN_MENU)
-            code = input()
-            if code != "help":
-                better_code = functions.code_reader(code)
-    else: #by AmirParsa
-        functions.help_menu() #by AmirParsa
-        print(settings.MAIN_MENU) #by AmirParsa
-        code = input() #by AmirParsa
-        if code != "help": #by AmirParsa
-            better_code = functions.code_reader(code) #by AmirParsa
+def export_checking(): #by Arad Nejati
+    a=easygui.enterbox("please enter your image's name to export","export location")
+    return a
+def edit_type(): #by AmirReza Ardeshiri
+    Selected_effect=easygui.buttonbox("Please select your effect","effect",("black_and_white","grayscale","blur","negative","resize","brownstyle","cmyk","rotate"))
+    return Selected_effect
 
-# #by AmirParsa ==> By AmirParsa | #by Sepehr ==> by sepehr | Else from before
+better_code_a=input_first_part() #by kardel
+edit = edit_type() #By AmirParsa Rouhani
+export = export_checking() #By AmirParsa Rouhani
+better_code = functions.code_reader(better_code_a, edit, export) #By AmirParsa Rouhani
+
+while not done:
+    finish = functions.insert_checker(better_code)
+    if finish == True:
+        done = True
+    else:
+        code = input()
+

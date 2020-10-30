@@ -1,19 +1,19 @@
 import settings
 from PIL import Image, ImageOps , ImageFilter
 
-def help_menu(): #This function by AmirParsa
+def help_menu(): 
     print(settings.HELP_MENU)
     help_input = input()
     if help_input == "1":
         full_help()
-    elif help_input == "2": # by sepehr
+    elif help_input == "2": 
         help_input_part = input(settings.side_parts)
         partial_help(help_input_part)
     else:
         print(settings.help_ERROR)
     return
 
-def partial_help(n): #by sepehr
+def partial_help(n): 
     if "1" in n:
         print(settings.help_main)
     elif "2" in n:
@@ -21,16 +21,10 @@ def partial_help(n): #by sepehr
     else:
         print("we probebly haven't added that ability yet...")
 
-
-def export_checking():
-    a=easygui.enterbox("please enter ur future image's address","export location")
-    return a
-
-
-def full_help(): #This function by AmirParsa
+def full_help(): 
     print(settings.full_help_menu)
     return
-def code_reader(a_part): # from before
+def code_reader(a_part, edit, export): #AmirParsa Rouhani
     # splitted_code = code.split()
     # jam = ""
     # jam2 = ""
@@ -38,7 +32,7 @@ def code_reader(a_part): # from before
         # for i in range(len(splitted_code[0])):
         #     if splitted_code[0][i] != '"':
         #         jam += splitted_code[0][i]
-        splitted_code = [a_part,'=','=','=']
+        splitted_code = [a_part,'edit',edit,export]
         # for i in range(len(splitted_code[3])):
         #     if splitted_code[3][i] != '"':
         #         jam2 += splitted_code[3][i]
@@ -139,13 +133,8 @@ def edit_choose(address, img):
             address = mistake[i - 1]
             return edit_choose(address, img)
 
-def export_menu(address, img,which): # AmirParsa
-    if which == 'again':
-        '''
-        noob al dolleh azamian shomare 2 in tike esm tabe ro bezar
-        '''
-    else:
-        img.save(address)
+def export_menu(address, img): # AmirParsa
+    img.save(address)
     return
 
 def insert_checker(address):
@@ -165,12 +154,10 @@ def insert_checker(address):
                 address[1] = "edit"
                 img = edit_choose(address[2], img)
         try:
-            location = export_checking()
-            address[3] = location
-            export_menu(address[3],img,answer_of_which)
+            export_menu(address[3],img)
             return True
         except:
-            print("Error found | Can't export the file, try again: " + address[3])
+            print("Error found | Can't export the file, try again: " + address[3]) 
     except:
         print("Error found | No image found with address: " + address[0])
 
